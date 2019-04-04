@@ -47,7 +47,7 @@ FOREIGN KEY (idemployee) REFERENCES Allocation(idemployee)
 ALTER TABLE Planned_production_employee_details ADD CONSTRAINT FK_Planned_production_employee_details_Planned_production
 FOREIGN KEY (idproces) REFERENCES Planned_production(idplan)
 
--- Failures FOREIGn KEYS ------
+-- Failures FOREIGN KEYS ------
 ALTER TABLE Failures ADD CONSTRAINT FK_Production_proces
 FOREIGN KEY (idproces) REFERENCE Production_proces(idproces)
 
