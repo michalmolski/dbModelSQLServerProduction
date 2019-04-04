@@ -35,8 +35,14 @@
 	specification nvarchar(50) NOT NULL, --changed name from description (slq syntax word) to specification
 	failuredate DATE NOT NULL
 	);
---production process table--
-
+	
+	--Production_proces table--  
+	CREATE TABLE Production_proces
+	(idproces INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+	idplan nvarchar(50) NOT NULL,
+	startdate DATE,
+	enddate DATE,
+	);
 --============/PRODUCTION CONSTRAINTS -> FOREIGN KEYS==========
 --planned_production FOREING KEYS--------
 ALTER TABLE Planned_production ADD CONSTRAINT FK_Order_detail
@@ -58,8 +64,4 @@ FOREIGN KEY (idfailure) REFERENCES Failure_maintenance(idfailure)
 
 --Production_proces FOREING KEYS--------
 ALTER TABLE Production_proces ADD CONSTRAINT FK_Production_proces_Planned_production
-<<<<<<< master
 FOREIGN KEY (idplan) REFERENCES Planned_production(idplan)
-=======
-FOREIGN KEY (idplan) REFERENCES Planned_production(idplan)
->>>>>>> local
