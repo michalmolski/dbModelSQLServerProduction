@@ -30,11 +30,13 @@
 -- failures table---
 	CREATE TABLE Failures
 	(
-	idfailures INT NOT NULL PRIMARY KEY IDENTYTY(1,1)
-	idproces INT NOT NULL
-	description nvarchar(50) NOT NULL
+	idfailures INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+	idproces INT NOT NULL,
+	specification nvarchar(50) NOT NULL, --changed name from description (slq syntax word) to specification
 	failuredate DATE NOT NULL
 	);
+--production process table--
+
 --============/PRODUCTION CONSTRAINTS -> FOREIGN KEYS==========
 --planned_production FOREING KEYS--------
 ALTER TABLE Planned_production ADD CONSTRAINT FK_Order_detail
@@ -49,7 +51,11 @@ FOREIGN KEY (idproces) REFERENCES Planned_production(idplan)
 
 -- Failures FOREIGN KEYS ------
 ALTER TABLE Failures ADD CONSTRAINT FK_Production_proces
-FOREIGN KEY (idproces) REFERENCE Production_proces(idproces)
+FOREIGN KEY (idproces) REFERENCES Production_proces(idproces)
 
 ALTER TABLE Failures ADD CONSTRAINT FK_Failures_maintenance
-FOREIGN KEY (idfailure) REFERENCE Failure_maintenance(idfailure)
+FOREIGN KEY (idfailure) REFERENCES Failure_maintenance(idfailure)
+
+--Production_proces FOREING KEYS--------
+ALTER TABLE Production_proces ADD CONSTRAINT FK_Production_proces_Planned_production
+FOREIGN KEY (idplan) REFERENCES Planned_production(idplan)
