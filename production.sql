@@ -18,13 +18,21 @@
 	startdate DATE,
 	enddate DATE,
 	);
+
+-- technology table--
+	CREATE TABLE Technology
+	(idtechnology INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+	technologyname nvarchar(20) NOT NULL,
+	timepermeter INT NOT NULL,
+	speedfactor INT NOT NULL,
+	);
 	
 --============/PRODUCTION CONSTRAINTS -> FOREIGN KEYS==========
---planned_production FOREING KEYES--------
+--planned_production FOREING KEYS--------
 ALTER TABLE Planned_production ADD CONSTRAINT FK_Order_detail
 FOREIGN KEY (iddetail) REFERENCES Order_detail(iddetail)
 
--- planned_prod_empl_det FOREING KEYES--------
+-- planned_prod_empl_det FOREING KEYS--------
 ALTER TABLE Planned_production_employee_details ADD CONSTRAINT FK_Planned_production_employee_details_Allocation
 FOREIGN KEY (idemployee) REFERENCES Allocation(idemployee)
 
