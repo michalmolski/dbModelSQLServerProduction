@@ -22,7 +22,7 @@
 -- technology table--
 	CREATE TABLE Technology
 	(idtechnology INT NOT NULL PRIMARY KEY IDENTITY(1,1),
-	technologyname nvarchar(20) NOT NULL,
+	technologyname nvarchar(50) NOT NULL,
 	timepermeter INT NOT NULL,
 	speedfactor INT NOT NULL,
 	);
