@@ -27,6 +27,14 @@
 	speedfactor INT NOT NULL,
 	);
 	
+-- failures table---
+	CREATE TABLE Failures
+	(
+	idfailures INT NOT NULL PRIMARY KEY IDENTYTY(1,1)
+	idproces INT NOT NULL
+	description nvarchar(50) NOT NULL
+	failuredate DATE NOT NULL
+	);
 --============/PRODUCTION CONSTRAINTS -> FOREIGN KEYS==========
 --planned_production FOREING KEYS--------
 ALTER TABLE Planned_production ADD CONSTRAINT FK_Order_detail
@@ -38,3 +46,10 @@ FOREIGN KEY (idemployee) REFERENCES Allocation(idemployee)
 
 ALTER TABLE Planned_production_employee_details ADD CONSTRAINT FK_Planned_production_employee_details_Planned_production
 FOREIGN KEY (idproces) REFERENCES Planned_production(idplan)
+
+-- Failures FOREIGn KEYS ------
+ALTER TABLE Failures ADD CONSTRAINT FK_Production_proces
+FOREIGN KEY (idproces) REFERENCE Production_proces(idproces)
+
+ALTER TABLE Failures ADD CONSTRAINT FK_Failures_maintenance
+FOREIGN KEY (idfailure) REFERENCE Failure_maintenance(idfailure)
