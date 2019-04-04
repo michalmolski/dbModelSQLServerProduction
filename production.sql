@@ -58,4 +58,8 @@ FOREIGN KEY (idfailure) REFERENCES Failure_maintenance(idfailure)
 
 --Production_proces FOREING KEYS--------
 ALTER TABLE Production_proces ADD CONSTRAINT FK_Production_proces_Planned_production
+<<<<<<< master
 FOREIGN KEY (idplan) REFERENCES Planned_production(idplan)
+=======
+FOREIGN KEY (idplan) REFERENCES Planned_production(idplan)
+>>>>>>> local
